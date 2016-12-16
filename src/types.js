@@ -17,3 +17,8 @@ export type LinkType = {
   children: string,
   onClick: Function,
 }
+
+export type VisibilityFilter =
+  { SHOW_ALL: 'SHOW_ALL' } |
+  { SHOW_COMPLETED: 'SHOW_COMPLETED' } |
+  { SHOW_ACTIVE: 'SHOW_ACTIVE' }
