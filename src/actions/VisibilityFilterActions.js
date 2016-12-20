@@ -11,7 +11,7 @@ export type SetVisibilityFilterAction = {
   filter: VisibilityFilter,
 };
 
-export default function SetVisibilityFilter(
+export default function setVisibilityFilter(
   filter: VisibilityFilter
 ): SetVisibilityFilterAction {
   return { type: SET_VISIBILITY_FILTER, filter };
