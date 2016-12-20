@@ -1,7 +1,13 @@
 // @flow
 
 import React from 'react';
-import type { TodoType } from '../types';
+
+export type TodoType = {
+  completed: boolean,
+  id: number,
+  onClick: Function,
+  text: string,
+};
 
 const Todo = ({ onClick, completed, text }: TodoType) => (
   <a
@@ -13,6 +19,6 @@ const Todo = ({ onClick, completed, text }: TodoType) => (
   >
     {text}
   </a>
-)
+);
 
 export default Todo;

@@ -1,15 +1,19 @@
-// Dependencies
-import {
-  ADD_TODO,
-  TOGGLE_TODO,
-  SET_VISIBILITY_FILTER,
-  VisibilityFilters,
-} from './actions';
+// @flow
 
-const { SHOW_ALL } = VisibilityFilters;
+import { combineReducers } from 'redux';
+
+// Dependencies
+import type {
+  VisibilityFilter,
+  SetVisibilityFilterAction,
+} from './actions/visibility';
+import { SET_VISIBILITY_FILTER } from './actions/visibility';
+import { ADD_TODO, TOGGLE_TODO } from './actions/todo';
 
 // Update visibility state
-export function visibilityFilter(state = SHOW_ALL, action) {
+export function visibilityFilter(
+  state: VisibilityFilter = 'SHOW_ALL', action: SetVisibilityFilterAction
+) {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
       return action.filter;
@@ -19,7 +23,7 @@ export function visibilityFilter(state = SHOW_ALL, action) {
 }
 
 // Update todos state
-export function todos(state = [], action) {
+export function todos(state: Array<TodoType> = [], action: TodoAction) {
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -42,3 +46,7 @@ export function todos(state = [], action) {
       return state;
   }
 }
+
+const todoApp = combineReducers(visibilityFilter, todos);
+
+export default todoApp;
