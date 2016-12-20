@@ -12,7 +12,7 @@ import { ADD_TODO, TOGGLE_TODO } from './actions/todo';
 import type { TodoAction } from './actions/todo';
 
 // Props
-import type { TodoType } from './components/Todo/TodoType';
+import type { TodoProps } from './components/Todo/TodoProps';
 
 // Update visibility state
 export function visibilityFilter(
@@ -27,28 +27,28 @@ export function visibilityFilter(
 }
 
 // Update todos state
-export function todos(state: Array<TodoType> = [], action: TodoAction) {
-  switch (action.type) {
-    case ADD_TODO:
-      return [
-        ...state,
-        {
-          text: action.text,
-          completed: false,
-        },
-      ];
-    case TOGGLE_TODO:
-      return state.map((todo: TodoType, index: number) => {
-        if (index === action.index) {
-          return Object.assign({}, todo, {
-            completed: !todo.completed,
-          });
-        }
-        return todo;
-      });
-    default:
-      return state;
+export function todos(state: Array<TodoProps> = [], action: TodoAction) {
+  if (action.type === ADD_TODO) {
+    return [
+      ...state,
+      {
+        text: action.text,
+        completed: false,
+      },
+    ];
+  } else if (action.type === TOGGLE_TODO) {
+    const actionIndex = action.index;
+    return state.map((todo, index: number) => {
+      if (index === actionIndex) {
+        return Object.assign({}, todo, {
+          completed: !todo.completed,
+        });
+      }
+      return todo;
+    });
   }
+
+  return state;
 }
 
 const todoApp = combineReducers(visibilityFilter, todos);

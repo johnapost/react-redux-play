@@ -2,9 +2,9 @@
 
 import React from 'react';
 import Todo from '../Todo/Todo';
-import type { TodoListType } from './TodoListType';
+import type { TodoListProps } from './TodoListProps';
 
-const TodoList = ({ todos, onTodoClick }: TodoListType) => (
+const TodoList = ({ todos, onTodoClick }: TodoListProps) => (
   <ul>
     {todos.map(todo =>
       <Todo

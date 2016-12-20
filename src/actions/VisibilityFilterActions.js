@@ -9,7 +9,7 @@ export type VisibilityFilter = 'SHOW_ALL' | 'SHOW_COMPLETED' | 'SHOW_ACTIVE';
 export type SetVisibilityFilterAction = {
   type: 'SET_VISIBILITY_FILTER',
   filter: VisibilityFilter,
-}
+};
 
 export default function SetVisibilityFilter(
   filter: VisibilityFilter

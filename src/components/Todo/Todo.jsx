@@ -1,9 +1,9 @@
 // @flow
 
 import React from 'react';
-import type { TodoType } from './TodoType';
+import type { TodoProps } from './TodoProps';
 
-const Todo = ({ onClick, completed, text }: TodoType) => (
+const Todo = ({ onClick, completed, text }: TodoProps) => (
   <a
     onClick={onClick}
     style={{

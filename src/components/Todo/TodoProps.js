@@ -1,6 +1,4 @@
-// @flow
-
-export type TodoType = {
+export type TodoProps = {
   completed: boolean,
   id: number,
   onClick: Function,
