@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/testStore.js',
+  entry: './src/app',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -9,13 +9,16 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
-          presets: ['es2015'],
+          presets: ['es2015', 'react'],
         },
       },
     ],
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
   },
 };

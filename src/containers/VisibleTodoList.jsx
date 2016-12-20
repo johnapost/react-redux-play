@@ -1,11 +1,12 @@
 // @flow
 
 import { connect } from 'react-redux';
-import type { TodoType, VisibilityFilter } from '../types';
-import TodoList from '../components/TodoList';
-import { toggleTodo } from '../actions';
+import type { TodoProps } from '../components/Todo/TodoProps';
+import type { VisibilityFilter } from '../actions/VisibilityFilterActions';
+import TodoList from '../components/TodoList/TodoList';
+import { toggleTodo } from '../actions/TodoActions';
 
-const getVisibleTodos = (todos: Array<TodoType>, filter: VisibilityFilter) => {
+const getVisibleTodos = (todos: Array<TodoProps>, filter: VisibilityFilter) => {
   switch (filter) {
     case 'SHOW_ALL': return todos;
     case 'SHOW_COMPLETED': return todos.filter(t => t.completed);
@@ -14,11 +15,11 @@ const getVisibleTodos = (todos: Array<TodoType>, filter: VisibilityFilter) => {
   }
 };
 
-const mapStateToProps = state => (
+const mapStateToProps: Object = state => (
   { todos: getVisibleTodos(state.todos, state.visibilityFilter) }
 );
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps: Object = dispatch => ({
   onTodoClick: (id) => { dispatch(toggleTodo(id)); },
 });
 
