@@ -7,7 +7,9 @@
   "plugins": ["flowtype"],
   "rules": {
     "flowtype/define-flow-type": 1,
-    "flowtype/use-flow-type": 1
+    "flowtype/use-flow-type": 1,
+    "flowtype/delimiter-dangle": [2, "always"],
+    "flowtype/semi": [2, "always"]
   },
   "settings": {
     "flowtype": {

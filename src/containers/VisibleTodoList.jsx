@@ -1,9 +1,10 @@
 // @flow
 
 import { connect } from 'react-redux';
-import type { TodoType, VisibilityFilter } from '../types';
-import TodoList from '../components/TodoList';
-import { toggleTodo } from '../actions';
+import type { TodoType } from '../components/Todo/TodoType';
+import type { VisibilityFilter } from '../actions/visibility';
+import TodoList from '../components/TodoList/TodoList';
+import { toggleTodo } from '../actions/todo';
 
 const getVisibleTodos = (todos: Array<TodoType>, filter: VisibilityFilter) => {
   switch (filter) {

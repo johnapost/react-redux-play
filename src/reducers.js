@@ -2,13 +2,17 @@
 
 import { combineReducers } from 'redux';
 
-// Dependencies
+// Actions
+import { SET_VISIBILITY_FILTER } from './actions/visibility';
 import type {
   VisibilityFilter,
   SetVisibilityFilterAction,
 } from './actions/visibility';
-import { SET_VISIBILITY_FILTER } from './actions/visibility';
 import { ADD_TODO, TOGGLE_TODO } from './actions/todo';
+import type { TodoAction } from './actions/todo';
+
+// Props
+import type { TodoType } from './components/Todo/TodoType';
 
 // Update visibility state
 export function visibilityFilter(
@@ -34,7 +38,7 @@ export function todos(state: Array<TodoType> = [], action: TodoAction) {
         },
       ];
     case TOGGLE_TODO:
-      return state.map((todo, index) => {
+      return state.map((todo: TodoType, index: number) => {
         if (index === action.index) {
           return Object.assign({}, todo, {
             completed: !todo.completed,

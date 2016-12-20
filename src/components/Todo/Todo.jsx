@@ -1,13 +1,7 @@
 // @flow
 
 import React from 'react';
-
-export type TodoType = {
-  completed: boolean,
-  id: number,
-  onClick: Function,
-  text: string,
-};
+import type { TodoType } from './TodoType';
 
 const Todo = ({ onClick, completed, text }: TodoType) => (
   <a

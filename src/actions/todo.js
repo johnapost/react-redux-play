@@ -8,20 +8,20 @@ export const TOGGLE_TODO = 'TOGGLE_TODO';
 export type AddTodoAction = {
   type: 'ADD_TODO',
   text: string,
-}
+};
 
-export function AddTodo(text: string): AddTodoAction {
+export function addTodo(text: string): AddTodoAction {
   return { type: ADD_TODO, text };
 }
 // ---
 
 // --- TOGGLE_TODO
 export type ToggleTodoAction = {
-  type: string,
-  index: number
-}
+  type: 'TOGGLE_TODO',
+  index: number,
+};
 
-export function ToggleTodo(index: number): ToggleTodoAction {
+export function toggleTodo(index: number): ToggleTodoAction {
   return { type: TOGGLE_TODO, index };
 }
 // ---
