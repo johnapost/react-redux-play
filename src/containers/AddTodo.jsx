@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions/todo';
+import { addTodo } from '../actions/TodoActions';
 
 const AddTodoView = ({ dispatch }: Function) => {
   let input;

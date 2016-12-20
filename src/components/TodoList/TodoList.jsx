@@ -9,8 +9,8 @@ const TodoList = ({ todos, onTodoClick }: TodoListProps) => (
     {todos.map(todo =>
       <Todo
         key={todo.id}
-        {...todo}
         onClick={() => onTodoClick(todo.id)}
+        {...todo}
       />,
     )}
   </ul>
