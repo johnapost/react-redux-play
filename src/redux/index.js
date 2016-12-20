@@ -1,2 +1,2 @@
-export todo from './todo';
-export visibilityFilter from './visibilityFilter';
+export { default as todos } from './todo';
+export { default as visibilityFilter } from './visibilityFilter';

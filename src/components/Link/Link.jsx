@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import type { LinkType } from '../types';
+import type { LinkType } from './LinkType';
 
 const Link = ({ active, children, onClick }: LinkType) => {
   if (active) {
